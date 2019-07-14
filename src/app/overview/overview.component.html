@@ -1,0 +1,55 @@
+            <table class="table" data-table-theme="default zebra">
+               <thead class="table-active">
+              <tr>
+                    <th>Identifier</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>City</th>
+                    <th>Location</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Direction</th>
+                    <th>Lanes</th>
+                    <th>Vehicles Involved</th>
+                </tr>
+              </thead>
+              <tbody class="table-secondary">
+                <tr *ngFor="let incident of incidents; let i = index" (click)="setClickedRow(incident.city)">
+                    <td>{{incident.uniqueId}}</td>
+                    <td>{{incident.date}}</td>
+                    <td>{{incident.time}}</td>
+                    <td>{{incident.city}}</td>
+                    <td>{{incident.location}}</td>
+                    <td>{{incident.lat}}</td>
+                    <td>{{incident.longitude}}</td>
+                    <td>{{incident.direction}}</td>
+                    <td>{{incident.lanes}}</td>
+                    <td>{{incident.vehiclesInvolved}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+                <ul class="pagination pagination-lg justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#">&laquo;</a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">&raquo;</a>
+                  </li>
+                </ul>
+              </div>
