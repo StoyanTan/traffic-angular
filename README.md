@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 The frontend components are still in development, the app is tuned to perform calls in the backend and re-render the data dynamically using the router. Pagination is still not implemented.
 
-The next step is to visualize the data with a the d3 framework (https://github.com/d3) and make the aggregated elements clickable for a drill down to specific classes (e.g city where the incident happened).
+The next step is to visualize the data with a the d3 framework (https://github.com/d3) and make the aggregated elements clickable for a drill down to specific classes of objects, filtered according to some meaningful criteria (e.g city where the incident happened).
 
 ## Remarks
 
