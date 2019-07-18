@@ -3,6 +3,10 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
   cursor: pointer;
 }
 
+div {
+  text-align: center;
+}
+
 .table tr.active td {
   background-color:#123456 !important;
   color: white;

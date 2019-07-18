@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Incident } from '../shared/incident';
 import { throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { KeyValue } from './keyvalue';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,16 @@ export class RestService {
   }  
 
   // get all 
-  getIncidents(city: String) {
+  getIncidents(city: string) {
     return this.http.get<Incident[]>(this.url + "/" + city);
+  }
+
+  getClustering() {
+    return this.http.get<{ children: KeyValue[]; }>(this.url);
+  }
+
+  getIncidentById(id: string) {
+    return this.http.get<Incident>(this.url + "/" + id);
   }
 
   // Error handling 

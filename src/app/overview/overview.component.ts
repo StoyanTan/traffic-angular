@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../shared/restservice';
 import { Incident } from '../shared/incident';
+import { D3PackedBubbleChartService } from '../shared/d3-packed-bubble-chart';
+import { KeyValue } from '../shared/keyvalue';
 
 @Component({
   selector: 'app-overview',
@@ -10,13 +12,18 @@ import { Incident } from '../shared/incident';
 export class OverviewComponent implements OnInit {
 
   incidents:  Incident[];
+  dataset: {
+      children: KeyValue[];
+    }
 
   constructor(
-    public RS: RestService
+    public RS: RestService,
+    private d3PackedBubbleChartService: D3PackedBubbleChartService,
   ) { }
 
   ngOnInit() {
-    return this.RS.getIncidents("").subscribe(data => this.incidents = data); 
+    this.RS.getClustering().subscribe(data => this.dataset = data);
+    this.d3PackedBubbleChartService.renderChart(this.dataset);
   }
 
   setClickedRow(i) {
