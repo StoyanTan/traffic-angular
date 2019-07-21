@@ -1,23 +1,24 @@
-  <div class="card mb-3">
-    <h3 class="card-header">Incident ID: {{incidentDetails.uniqueId}}</h3>
+  <div class="card bg-secondary mb-3 mt-2 mx-auto">
+    <h3 class="card-header bg-primary text-white text-center">Incident ID: {{incidentDetails.uniqueId}}</h3>
     <div class="card-body">
-      <h5 class="card-title">{{incidentDetails.twitterLink}}</h5>
+      <h4 class="card-title">{{incidentDetails.twitterLink}}</h4>
       <h6 class="card-subtitle text-muted">{{incidentDetails.date}}, {{incidentDetails.time}}</h6>
+      <div class="mt-2">
+        <h5 class="card-subtitle">{{incidentDetails.city}}</h5>
+      </div>
+      <div class="twitter-container card-body text-center">
+        <div class="twitter-wrapper">
+          <ngx-tweet tweetId="{{ getTweetId(incidentDetails.source) }}"></ngx-tweet>
+        </div>
+      </div>
     </div>
-    <img style="height: 200px; width: 100%; display: block;" src= {{incidentDetails.source}} alt="Card image">
-    <div class="card-body">
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+    <ul class="list-group list-group-flush text-center">
+      <li class="list-group-item text-white bg-warning font-weight-bold">Following vehicles were involved: {{incidentDetails.vehiclesInvolved}}</li>
+      <li class="list-group-item bg-info text-white">Exact geolocaton: {{incidentDetails.longitude}}, {{incidentDetails.lat}}</li>
+      <li class="list-group-item bg-info text-white">Number of blocked lanes: {{incidentDetails.lanes}}</li>
     </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-    <div class="card-footer text-muted">
-        
+    <div class="card-body text-center">
+      <a href="" class="card-link">Home</a>
+      <a href="/overview" class="card-link">Overview</a>
     </div>
   </div>

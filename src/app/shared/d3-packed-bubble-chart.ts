@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import * as d3 from 'd3';
+import { RestService } from './restservice';
+import { TableComponent } from '../table/table.component';
 
 
 @Injectable()
 export class D3PackedBubbleChartService {
 
-  constructor() { }
+  constructor(
+    public RS: RestService,
+    public table: TableComponent
+  ) { }
 
   renderChart(dataset) {
     let height = 800;
@@ -43,14 +48,29 @@ export class D3PackedBubbleChartService {
 
     node.append("title")
       .text(function (d: any) {
-        return d.parameter + ": " + d.count;
+        return d.data.parameter + ": " + d.data.count;
       });
 
     node.append("circle")
+      .attr("data-toggle", "tooltip")
       .attr("x", function (d) { return d.x; })
       .attr("y", function (d) { return d.y })
       .attr("r", function (d) {
         return d.r;
+      })
+      .style("cursor", "pointer")
+      .on("mouseover", function(d){
+
+        d3.select(this)
+          .style("opacity", "0.7")
+      })
+      .on("mouseout", function(d){
+
+        d3.select(this)
+          .style("opacity", "1")
+      })
+      .on("click", function(d: any){
+         location.assign("/list/"+d.data.parameter);
       })
       .style("fill", function (d, i: any) {
         return color(i);
@@ -62,7 +82,7 @@ export class D3PackedBubbleChartService {
       .text(function (d: any) {
         return d.data.parameter.substring(0, d.r / 3);
       })
-      .attr("font-family", "sans-serif")
+      .attr("font-family", "Palatino Linotype")
       .attr("font-size", function (d) {
         return d.r / 5;
       })
@@ -79,12 +99,5 @@ export class D3PackedBubbleChartService {
         return d.r / 5;
       })
       .attr("fill", "white");
-
-    // d3.select(self.frameElement)
-    //   .style("height", height + "px")
-    //   .style("width", width2 + "px");;
-
-
   }
-
 }

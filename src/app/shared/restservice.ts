@@ -11,8 +11,13 @@ import { KeyValue } from './keyvalue';
 export class RestService {
   
   // Define API
-  url = "http://localhost:8080/service/traffic/incidents";
+  url = "http://localhost:8080/service/traffic";
 
+  result: {
+    count: number,
+    incidents: Incident[]
+  }
+  
   constructor(private http: HttpClient) { }
 
   httpOptions = {
@@ -21,9 +26,8 @@ export class RestService {
     })
   }  
 
-  // get all 
-  getIncidents(city: string) {
-    return this.http.get<Incident[]>(this.url + "/" + city);
+  getIncidents(city: string, page: number) {
+    return this.http.get<any>(this.url + "/city/" + city +"?page=" + page);
   }
 
   getClustering() {
@@ -31,7 +35,7 @@ export class RestService {
   }
 
   getIncidentById(id: string) {
-    return this.http.get<Incident>(this.url + "/" + id);
+    return this.http.get<Incident>(this.url + "/city/incidents/" + id);
   }
 
   // Error handling 

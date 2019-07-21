@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../shared/restservice';
 import { Incident } from '../shared/incident';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -10,13 +11,20 @@ import { Incident } from '../shared/incident';
 export class DetailsComponent implements OnInit {
 
   incidentDetails: Incident;
+  id: string;
 
   constructor(
-    public RS: RestService
+    public RS: RestService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    return this.RS.getIncidentById("23").subscribe(data => this.incidentDetails = data);
+    this.id = this.route.snapshot.paramMap.get('id');
+    return this.RS.getIncidentById(this.id).subscribe(data => this.incidentDetails = data);
+  }
+
+  getTweetId(tweet) {
+    return tweet.slice(tweet.lastIndexOf('/') + 1);
   }
 
 }
