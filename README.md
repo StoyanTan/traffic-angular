@@ -2,14 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
 
-## Quick overview of the current state
+## Quick overview
 
-The frontend components are still in development, the app is tuned to perform calls in the backend and re-render the data dynamically using the router. Pagination is still not implemented.
+The landing page is a component with static content styled with Bootstrap which serves the purpose of an introduction and contains the motivations of the author of the dataset to put it together.
 
-The next step is to visualize the data with a the d3 framework (https://github.com/d3) and make the aggregated elements clickable for a drill down to specific classes of objects, filtered according to some meaningful criteria (e.g city where the incident happened).
+On the overview page a clustering of the incident records by city is visualized with a d3.js bubble diagram https://observablehq.com/@d3/bubble-chart. The chart is interactive and clickable and gives the user the count of incidents for every city. When it is clicked on we get routed to a table component with more information about the incidents for the selected city. It is paginated on the server side, so that we do not load all the data in the frontend at once. This makes it scalable and able to fit to much larger datasets.
 
-The visualization I would choose is the bubble chart: https://observablehq.com/@d3/bubble-chart
+When a concrete table row is clicked the user gets navigated to a tile with details about a specific incident containing all the data from this record and an embedded Twitter widget linking to the original tweet by the Manila traffic authority.
+
+
 
 ## Remarks
 
-The main goal of this application is to build a basic frontend which makes use of the service in the backend which was implemented with JAX-RS and JPA and fetches static data from an H2 database. In a further iteration it could look a lot cooler and bring additional functionality.
+External dependencies are among others Bootstrap 4, d3.js and a styling guide for the table by Pablo Garcia (link in the CSS file). 
