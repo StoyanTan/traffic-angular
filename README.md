@@ -15,3 +15,7 @@ When a concrete table row is clicked the user gets navigated to a tile with deta
 ## Remarks
 
 External dependencies are among others Bootstrap 4, d3.js and a styling guide for the table by Pablo Garcia (link in the CSS file). 
+
+## Demo
+
+https://github.com/StoyanTan/traffic-angular/blob/master/manila.gif
