@@ -31,7 +31,7 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-      this.getPage(1);
+    this.getPage(1);
   }
 
   setClickedRow(i) {
@@ -39,13 +39,12 @@ export class TableComponent implements OnInit {
   }
 
   getPage(page: number) {
-      this.loading = true;
-      this.city = this.route.snapshot.paramMap.get('city');
-      this.serverCall(this.city, page).subscribe(data => this.result = data);
+    this.loading = true;
+    this.city = this.route.snapshot.paramMap.get('city');
+    this.serverCall(this.city, page).subscribe(data => this.result = data);
   }
 
   serverCall(city: string, page: number): Observable<any> {
-    console.log(page);
     return this.RS.getIncidents(city, page);
   }
 }

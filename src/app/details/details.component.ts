@@ -26,5 +26,4 @@ export class DetailsComponent implements OnInit {
   getTweetId(tweet) {
     return tweet.slice(tweet.lastIndexOf('/') + 1);
   }
-
 }

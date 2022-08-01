@@ -1,24 +1,26 @@
-  <div class="card bg-secondary mb-3 mt-2 mx-auto">
-    <h3 class="card-header bg-primary text-white text-center">Incident ID: {{incidentDetails.uniqueId}}</h3>
-    <div class="card-body">
-      <h4 class="card-title">{{incidentDetails.twitterLink}}</h4>
-      <h6 class="card-subtitle text-muted">{{incidentDetails.date}}, {{incidentDetails.time}}</h6>
-      <div class="mt-2">
-        <h5 class="card-subtitle">{{incidentDetails.city}}</h5>
-      </div>
-      <div class="twitter-container card-body text-center">
-        <div class="twitter-wrapper">
-          <ngx-tweet tweetId="{{ getTweetId(incidentDetails.source) }}"></ngx-tweet>
-        </div>
-      </div>
+<div class="card bg-secondary mb-3 mt-2 mx-auto">
+  <h3 class="card-header bg-primary text-white text-center">Incident ID: {{incidentDetails?.uniqueId}}</h3>
+  <div class="card-body">
+    <h4 class="card-title">{{incidentDetails?.twitterLink}}</h4>
+    <h6 class="card-subtitle text-muted">{{incidentDetails?.date}}, {{incidentDetails?.time}}</h6>
+    <div class="mt-2">
+      <h5 class="card-subtitle">{{incidentDetails?.city}}</h5>
     </div>
-    <ul class="list-group list-group-flush text-center">
-      <li class="list-group-item text-white bg-warning font-weight-bold">Following vehicles were involved: {{incidentDetails.vehiclesInvolved}}</li>
-      <li class="list-group-item bg-info text-white">Exact geolocaton: {{incidentDetails.longitude}}, {{incidentDetails.lat}}</li>
-      <li class="list-group-item bg-info text-white">Number of blocked lanes: {{incidentDetails.lanes}}</li>
-    </ul>
-    <div class="card-body text-center">
-      <a href="" class="card-link">Home</a>
-      <a href="/overview" class="card-link">Overview</a>
+    <div class="twitter-container card-body text-center">
+      <div class="twitter-wrapper">
+        <ngx-tweet tweetId="{{ getTweetId(incidentDetails?.source) }}"></ngx-tweet>
+      </div>
     </div>
   </div>
+  <ul class="list-group list-group-flush text-center">
+    <li class="list-group-item text-white bg-warning font-weight-bold">Following vehicles were involved:
+      {{incidentDetails?.vehiclesInvolved}}</li>
+    <li class="list-group-item bg-info text-white">Exact geolocaton: {{incidentDetails?.longitude}},
+      {{incidentDetails?.lat}}</li>
+    <li class="list-group-item bg-info text-white">Number of blocked lanes: {{incidentDetails?.lanes}}</li>
+  </ul>
+  <div class="card-body text-center">
+    <a href="" class="card-link">Home</a>
+    <a href="/overview" class="card-link">Overview</a>
+  </div>
+</div>

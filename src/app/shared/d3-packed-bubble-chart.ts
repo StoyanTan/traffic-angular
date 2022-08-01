@@ -59,18 +59,18 @@ export class D3PackedBubbleChartService {
         return d.r;
       })
       .style("cursor", "pointer")
-      .on("mouseover", function(d){
+      .on("mouseover", function (d) {
 
         d3.select(this)
           .style("opacity", "0.7")
       })
-      .on("mouseout", function(d){
+      .on("mouseout", function (d) {
 
         d3.select(this)
           .style("opacity", "1")
       })
-      .on("click", function(d: any){
-         location.assign("/list/"+d.data.parameter);
+      .on("click", function (d: any) {
+        location.assign("/list/" + d.data.parameter);
       })
       .style("fill", function (d, i: any) {
         return color(i);
